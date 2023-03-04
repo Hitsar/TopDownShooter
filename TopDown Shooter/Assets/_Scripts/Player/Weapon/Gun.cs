@@ -4,6 +4,7 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bullet;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private AudioSource _audio;
 
     private void Update()
     {
@@ -14,6 +15,7 @@ public class Gun : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(_bullet, _spawnPoint.position, _spawnPoint.rotation);
+            _audio.Play();
         }
     }
 }

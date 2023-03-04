@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _moveInput.x = Input.GetAxis("Horizontal");
         _moveInput.y = Input.GetAxis("Vertical");
 
-        _rigidbody.MovePosition(_rigidbody.position + _moveInput * _speed * Time.deltaTime);
+        _rigidbody.MovePosition(_rigidbody.position + _moveInput * _speed * Time.fixedDeltaTime);
     }
 }

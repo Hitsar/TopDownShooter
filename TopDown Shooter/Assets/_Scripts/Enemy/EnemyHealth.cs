@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private ParticleSystem _particle;
 
     private KilledEnemyDisplay _enemyDisplay;
 
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Bullet bullet))
         {
+            _particle.Play();
             TakeDamage();
             Destroy(bullet.gameObject);
         }
